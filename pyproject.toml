@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spinechassis"
+version = "0.1.0"
+description = "3D atlas of the human spine under load: CT segmentation, biomechanics and an interactive viewer."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Muktanan Mohapatra" }]
+
+[project.optional-dependencies]
+dev = ["ruff", "pytest", "mypy"]
+
+[tool.setuptools.packages.find]
+where = ["pipeline"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
